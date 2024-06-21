@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tads-app
+    ports:
+      - "7070:80"
+    volumes:
+      - ./app:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
+    container_name: tads-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tads
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  logs:
+    build:
+      context: .
+      dockerfile: microservices/log-service/dockerfile
+    container_name: tads-logs
+    ports:
+      - "5010:5010"
+    volumes:
+      - ./microservices/log-service/logs.db:/app/logs.db
+
+  recommendation:
+    build:
+      context: .
+      dockerfile: microservices/recommendation/dockerfile
+    container_name: tads-recommendation
+    ports:
+      - "5001:5001"
+
+volumes:
+  db_data:

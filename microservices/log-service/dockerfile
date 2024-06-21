@@ -1,0 +1,19 @@
+FROM python:latest
+
+WORKDIR /app
+
+COPY microservices/log-service/requirements.txt .
+
+COPY microservices/log-service/app.py .
+
+#COPY microservices/log-service/logs.db .
+
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get clean
+
+RUN pip install -r requirements.txt --no-cache
+
+EXPOSE 5010
+
+CMD [ "python", "app.py" ]

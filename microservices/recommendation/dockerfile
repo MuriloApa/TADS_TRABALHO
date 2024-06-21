@@ -1,0 +1,24 @@
+# Dockerfile
+
+# Usar uma imagem base do Python
+FROM python:3.9-slim
+
+WORKDIR /app
+
+# Instalar dependências
+COPY microservices/recommendation/requirements.txt requirements.txt
+
+RUN pip install --upgrade pip
+
+RUN pip install -r requirements.txt
+
+# Copiar os arquivos do projeto
+COPY microservices/recommendation/product_recommendation.py /app
+
+COPY microservices/recommendation/electronics.csv /app/
+
+# Expor a porta
+EXPOSE 5001
+
+# Comando para iniciar o serviço
+CMD ["python", "product_recommendation.py"]

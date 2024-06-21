@@ -1,0 +1,5 @@
+pandas
+flask
+scipy==1.12
+gensim
+scikit-learn
