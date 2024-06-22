@@ -22,7 +22,7 @@ Aperture
   <li class="nav-item"><a href="index.php?controller=ShoppingCart&action=shopping" class="nav-link" href="#">Shopping</a></li>
   <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
   <li class="nav-item"><a class="nav-link" href="#">My Profile</a></li>
-  <li class="nav-item"><a class="nav-link" href="#">Logs</a></li>
+  <li class="nav-item"><a class="nav-link" href="index.php?controller=Logs&action=list">Logs</a></li>
 
   <li class="nav-item"><a class="nav-link" href="#">
     <svg class="bi" width="24" height="24"><use xlink:href="#cart"></use></svg>
