@@ -13,6 +13,6 @@ class LoggingObserver implements ObserverInterface
                     "message" => "The service $serviceName is offline."        
         ];
         
-        $response = ConnectServiceFacade::connect ($service, $data, 'JSON');
+        $response = ConnectServiceFacade::connect ($service[0], $data, 'JSON');
     }
 }

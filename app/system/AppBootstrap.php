@@ -16,7 +16,7 @@ class AppBootstrap
         MicroserviceRegistry::set('microservice-payment-credit', 'http://tads.localhost/2024/v6-MVC-Released/microservices/payment-credit/pay.php');
         MicroserviceRegistry::set('microservice-recommendation', 'http://tads-recommendation:5001/recommend');
         MicroserviceRegistry::set('microservice-image-descriptor', 'http://localhost:5000/predict');
-        MicroserviceRegistry::set('microservice-logs', 'http://tads-logs:5010/log');
+        MicroserviceRegistry::set('microservice-logs', ['http://tads-logs:5010/log', 'http://tads-logs:5010/logs']);
         
     }
     

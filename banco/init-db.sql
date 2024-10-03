@@ -1,0 +1,22 @@
+CREATE DATABASE IF NOT EXISTS tads;
+
+USE tads;
+
+CREATE TABLE IF NOT EXISTS user(     
+	id INT NOT NULL PRIMARY KEY auto_increment,     
+	name VARCHAR(255),     
+	last_name VARCHAR(255),     
+	username VARCHAR(255),    
+	email VARCHAR(255) 
+);
+
+CREATE TABLE IF NOT EXISTS product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    link TEXT,
+    image TEXT
+);

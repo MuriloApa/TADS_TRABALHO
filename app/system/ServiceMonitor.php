@@ -67,6 +67,6 @@ class ServiceMonitor
 
     public static function isURLAvailable($url) 
     {
-        return TRUE;
+        return FALSE;
     }
 }

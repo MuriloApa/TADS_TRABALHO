@@ -14,15 +14,18 @@ services:
       - db
 
   db:
-    image: mariadb:latest
+    build:
+      context: .
+      dockerfile: ./banco/Dockerfile
     container_name: tads-db
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: tads
-      MYSQL_USER: root
+      MYSQL_USER: admin
       MYSQL_PASSWORD: root
     volumes:
-      - db_data:/var/lib/mysql
+      - mariadb_data1:/var/lib/mysql
+    
 
   logs:
     build:
@@ -43,4 +46,4 @@ services:
       - "5001:5001"
 
 volumes:
-  db_data:
+  mariadb_data1:
